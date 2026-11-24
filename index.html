@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover Britain with UKSpotiva. Explore destinations, historic attractions and unforgettable UK tours.">
+<title>UKSpotiva | Discover Britain</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f6f7fa;color:#18253b}
+header{background:#101e35;color:white;padding:22px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:26px;font-weight:bold;color:#e6c477}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{padding:90px 8%;background:linear-gradient(90deg,#101e35ee,#101e3560),url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1600') center/cover;color:white}
+.hero h1{font-size:clamp(38px,6vw,65px);max-width:650px;margin:0 0 18px}
+.hero p{font-size:19px;max-width:580px;line-height:1.6}
+.search{display:flex;max-width:600px;gap:10px;margin-top:25px}
+.search input{flex:1;min-width:0;padding:16px;border:0;border-radius:7px;font-size:16px}
+button{background:#d6ae60;color:#152238;border:0;padding:15px 22px;border-radius:7px;font-weight:bold;cursor:pointer}
+section{padding:55px 7%}
+h2{font-size:30px}
+.intro{text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 15px #00000012}
+.card img{width:100%;height:175px;object-fit:cover}
+.card div{padding:18px}
+.card h3{margin-top:0}
+.card p{line-height:1.5;color:#536176}
+.card a{color:#96702d;font-weight:bold;text-decoration:none}
+.banner{background:#152640;color:white;text-align:center;padding:55px 20px}
+footer{background:#101e35;color:white;text-align:center;padding:28px}
+footer p{color:#d0d6df}
+@media(max-width:600px){header{gap:15px}.search{flex-direction:column}.hero{padding:65px 7%}nav a{margin:5px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">UKSpotiva</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#destinations">Explore</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<main>
+<div class="hero" id="home">
+<h1>Discover Britain. Explore Smarter.</h1>
+<p>Find Britain's hidden gems, historic landmarks, beautiful landscapes and unforgettable travel experiences with UKSpotiva.</p>
+<div class="search">
+<input id="search" placeholder="Search UK destinations...">
+<button onclick="findPlaces()">Explore UK</button>
+</div>
+</div>
+
+<section id="destinations">
+<div class="intro">
+<h2>Explore the United Kingdom</h2>
+<p>Discover four nations, thousands of experiences and endless possibilities.</p>
+</div>
+<div class="grid" id="places">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600" alt="London">
+<div><h3>England</h3><p>Explore London, historic cities, charming villages and beautiful countryside.</p><a href="https://www.visitengland.com/">Discover England →</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1506377585622-bedcbb027afc?w=600" alt="Scotland">
+<div><h3>Scotland</h3><p>Discover dramatic Highlands, castles, lochs and spectacular scenery.</p><a href="https://www.visitscotland.com/">Discover Scotland →</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=600" alt="Wales">
+<div><h3>Wales</h3><p>Explore mountains, coastal escapes, castles and Welsh culture.</p><a href="https://www.visitwales.com/">Discover Wales →</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600" alt="Northern Ireland">
+<div><h3>Northern Ireland</h3><p>Experience breathtaking coastlines, heritage and welcoming towns.</p><a href="https://discovernorthernireland.com/">Discover Northern Ireland →</a></div>
+</div>
+</div>
+</section>
+
+<section class="banner" id="about">
+<h2>Your UK Adventure Starts Here</h2>
+<p>UKSpotiva brings destinations, discovery and travel inspiration together in one place.</p>
+</section>
+</main>
+
+<footer id="contact">
+<h2>UKSpotiva</h2>
+<p>Discover Britain. Explore Smarter.</p>
+<p>Contact: hello@ukspotiva.co.uk</p>
+<p>© 2026 UKSpotiva. All rights reserved.</p>
+</footer>
+
+<script>
+function findPlaces(){
+const q=document.getElementById('search').value.trim().toLowerCase();
+const cards=document.querySelectorAll('.card');
+let count=0;
+cards.forEach(card=>{
+const match=!q||card.innerText.toLowerCase().includes(q);
+card.style.display=match?'block':'none';
+if(match)count++;
+});
+document.getElementById('destinations').scrollIntoView({behavior:'smooth'});
+if(!count)alert('No matching country found. Try England, Scotland, Wales or Northern Ireland.');
+}
+</script>
+</body>
+</html>
